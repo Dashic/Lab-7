@@ -28,12 +28,12 @@ print(f'Время выполнения поэлементного умноже�
 
 
 #Задание 2
-
+column = 4
 sulfate_values = []
 with open("data2.csv", encoding='utf-8') as r_file:
     file = list(csv.reader(r_file, delimiter =","))
     file.pop(0)
-    sulfate_values = [float(line[5]) for line in file if line[5]]
+    sulfate_values = [float(line[column]) for line in file if line[column]]
 
 
 sulfate_values = np.array(sulfate_values, float)
