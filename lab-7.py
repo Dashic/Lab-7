@@ -28,18 +28,19 @@ print(f'Время выполнения поэлементного умноже�
 
 
 #Задание 2
+
 sulfate_values = []
 with open("data2.csv", encoding='utf-8') as r_file:
     file = list(csv.reader(r_file, delimiter =","))
     file.pop(0)
-    for line in file:
-        if line[5] != '':
-            sulfate_values.append(float(line[5]))
+    sulfate_values = [float(line[5]) for line in file if line[5]]
+
+
 sulfate_values = np.array(sulfate_values, float)
-
-
 deviation = np.std(sulfate_values)
 print(f'Среднеквадратичное отклонение равно {deviation}')
+
+
 
 fig = plt.figure(figsize=(10, 4))
 ax1 = fig.add_subplot(1, 2, 1)
